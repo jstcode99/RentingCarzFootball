@@ -7,13 +7,34 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+// List all available competitions.
+Route::get('/get-leagues/{areas?}', function ($areas = '') {
+    return FootballData::getLeagues($areas);
+});
+
+//List one particular competition.
+Route::get('/get-league/{league}/{areas?}', function ($league, $areas = '') {
+    return FootballData::getLeague($league, $areas);
+});
+
+//List all teams for a particular competition.
+Route::get('/get-league-teams/{league}/{stage?}', function ($league, $stage = '') {
+    return FootballData::getLeagueTeams($league, $stage);
+});
+
+// Show Standings for a particular competition
+Route::get('/get-league-standings/{league}', function ($league) {
+    return FootballData::getLeagueStandings($league);
+});
+
+// List all matches for a particular competition.
+// array $filters = ['dateFrom' => '', 'dateTo' => '', 'stage' => '', 'status' => '', 'matchday' => '', 'group' => '']
+Route::get('/get-league-matches/{league}/filters/{filters?}', function ($league, $filters = '') {
+    return FootballData::getLeagueMatches($league, $filters);
 });

@@ -176,6 +176,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\FootballDataServiceProvider::class,
 
     ],
 
@@ -191,7 +192,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'ExampleClass' => App\Example\ExampleClass::class,
+        'FootballData' => App\FootballData\Facades\FootballDataFacade::class,
     ])->toArray(),
 
 ];

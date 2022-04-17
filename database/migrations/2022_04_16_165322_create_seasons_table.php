@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('seasons', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('api_id');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->timestamps();

@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
         // Macro FootballData
         Http::macro('footballData', function () {
             return Http::withHeaders([
-                'X-Auth-Token' => 'd1a76a9a76fe403ca9ec78699427cd0b',
+                'X-Auth-Token' => env('FootballData_TOKEN'),
             ])->baseUrl(env('FootballData_DOMAIN'));
         });
     }

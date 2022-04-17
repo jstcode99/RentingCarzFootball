@@ -73,7 +73,7 @@ class FootballData {
 	public function getLeagueMatches(String $leagueID, String $filters = '' ) {
         $objeFilters = json_decode($filters, true);
         $response = Http::footballData()->get('v2/competitions/'.$leagueID.'/matches', $objeFilters);
-		return $response->json($key = null);
+		return $response;
 	}
 
 }

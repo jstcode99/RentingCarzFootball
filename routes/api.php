@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CompetitionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,9 @@ Route::get('/get-league-standings/{league}', function ($league) {
 
 // List all matches for a particular competition.
 // array $filters = ['dateFrom' => '', 'dateTo' => '', 'stage' => '', 'status' => '', 'matchday' => '', 'group' => '']
-Route::get('/get-league-matches/{league}/filters/{filters?}', function ($league, $filters = '') {
-    return FootballData::getLeagueMatches($league, $filters);
-});
+// Route::get('/get-league-matches/{league}/filters/{filters?}', function ($league, $filters = '') {
+//     return FootballData::getLeagueMatches($league, $filters);
+// });
+
+Route::get('/get-league-matches/{league}/filters/{filters?}', [CompetitionsController::class, 'getLeagueMatches']);
+

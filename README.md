@@ -1,14 +1,21 @@
 ## About RentingCarzFootball
 
 Este repositorio de caracter evaluativo, contiene la API desarrollada con Laravel, con las funciones de:
-    -
-    -
+    - Conexion a la api de https://www.football-data.org/
+    - Lista de todas las competiciones disponibles.
+    - Lista una competencia en particular.
+    - Lista todos los equipos para una competencia en particular. (Necesaria la menbresion €25)
+    - Lista posiciones para una competencia en particular (Necesaria la menbresion €25)
+    - Lista todos los partidos de una competición en particular.
+
+## Stack
+
+Laravel (MySQL) - Vue (Nuxt 2 - CompositionApi) 
 
 # Acerca de la prueba
 
 Para esta prueba queremos que realices una aplicacion donde muestre tus conocimientos adquiridos, procuramos que no sea demasiado larga y disfrutes realizandola. Las tecnologia ha usar son la combinacion o cualquiera de estas (PHP, Javascript, Typescript, Yii, Laravel, Vue, React)
 
-    - Stack (Laravel - Vue)
 
 ## Objetivo
 

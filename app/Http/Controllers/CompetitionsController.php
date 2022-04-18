@@ -53,7 +53,7 @@ class CompetitionsController extends Controller
                     // check if the api has more new resources than the database
                     if($countMatchesApi > $countMatchesDB) {
                         // If true store all or update records
-                        return $this->upsertsSeasonsMatches($response['matches'], $responseCUCompetition->id);
+                        $this->upsertsSeasonsMatches($response['matches'], $responseCUCompetition->id);
                     }
                     // Aqui podria hacer un sql que haga left joins para traer la data propia 
                     // pero como en caso de nuevos registro o no la informacion es la misma por eso retorno matches
@@ -101,7 +101,15 @@ class CompetitionsController extends Controller
         $responseCUSeason = Seasons::updateOrCreate($season);
 
         if(isset($responseCUSeason->api_id)) {
-            $matchesNews = collect($matches)->map(function ($item) use ($competition_id, $responseCUSeason) {
+            $matchesNews = collect($matches)
+            ->reject(function ($item) {
+                // Valid if no have teams to match
+                // (Esta validacion adicional debido a que la api esta regerando registros sin de partidos sin equipos)
+                /**
+                 *  id: 391831 match with empty teams
+                 */
+                return empty($item['homeTeam']['id']) || empty($item['awayTeam']['id']);
+            })->map(function ($item) use ($competition_id, $responseCUSeason) {
                 if(isset($item['season'])) {
                     return array(
                         'api_id' => $item['id'],

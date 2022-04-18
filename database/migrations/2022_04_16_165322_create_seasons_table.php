@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('seasons', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('api_id');
+            $table->foreignId('api_id')->unique();
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->timestamps();

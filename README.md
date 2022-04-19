@@ -1,4 +1,25 @@
-## About RentingCarzFootball
+## Build Setup
+
+```bash
+# install dependencies
+$ composer install / $ composer update
+
+# migrate the models in your database (set first .env)
+$ php artisan migrate
+
+# serve with hot reload at localhost:8000
+$ php artisan serve
+
+
+## Nota adiciona (Docker)
+
+Estuve probando con sail y realice la configuracion de docker inicial, tuve que activar el modo hyper 
+y habilitar en mi setup el la vistualizacion, despues instale un distro de ubunto 18.04 LTS Free inicio y probe
+instalando un proyecto de prueba segund la doc de laravel y se inicio pero llego a al 8/15 de la instllacion y se cancelo
+lo mismo me paso con desde el proyecto, asi que no me fue posible probarlo 
+en mi sistema (Posiblemente tenga algo sin configurar o inhabilitado ya que hace un tiempo realice algo de virtualizacion con Androit Studio y Flutter)
+
+## Endpoints RentingCarzFootball
 
 Este repositorio de caracter evaluativo, contiene la API desarrollada con Laravel, con las funciones de:
     - Conexion a la api de https://www.football-data.org/
